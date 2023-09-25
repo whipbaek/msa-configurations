@@ -20,6 +20,6 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-server_image : "{cipher}f5e079a6e1ced7a51bc7b9fd8a2ce016463f4d6d3f314ebe8beb0d62dbbb2914f671e5b852c5a596e7913a0a365843830832fae423d0278ec32a2fae28ee64d7bbca3763843ff91c342060dc85688ea92fa1e70cdc24572fca9e1b049288aadb"
+server_image : "{cipher}524f0f565420ca6bd554c8d9183c98fb41bb7727ab911f91fe9dcf1edbfb422d5835f3cc4a860c321e5d4ba9c9e0ecd7b650a62f539f9f35cb5416f33d4d401ab8b9141ad66589ebfd8bfb97948740c5835c15ea8acf26f5ab1c10fab6336a2d"
 
 state-management-url : http://localhost:8090/state/
