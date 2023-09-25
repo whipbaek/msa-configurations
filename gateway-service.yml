@@ -1,0 +1,75 @@
+server:
+  port: 8090
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+spring:
+  application:
+    name: gateway-service
+  main:
+    web-application-type: reactive
+
+  cloud:
+    gateway:
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: ['https://ottogi-ottogi.vercel.app', 'http://localhost:3000']
+            allow-credentials: true
+            allowedHeaders: '*'
+            allowedMethods:
+              - PUT
+              - GET
+              - POST
+              - PATCH
+              - DELETE
+              - OPTIONS
+      routes:
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/member/**
+          filters:
+            - CustomAuthFilter
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/auth/**
+
+        - id: community-service
+          uri: lb://COMMUNITY-SERVICE
+          predicates:
+            - Path=/community/**
+          filters:
+            - CustomAuthFilter
+
+        - id: community-service
+          uri: lb://COMMUNITY-SERVICE
+          predicates:
+            - Path=/invite/**
+
+        - id: chat-service
+          uri: lb://CHAT-SERVICE
+          predicates:
+            - Path=/chat/**
+          filters:
+            - CustomAuthFilter
+
+        - id: statemanagement-service
+          uri: lb://STATEMANAGEMENT-SERVICE
+          predicates:
+            - Path=/state/**
+
+jwt:
+  secret: "{cipher}465f2a7f7799dcbfe3dc8a8b662c7aef18b3f6daed64c930b157f595cadb9fdabf84d2a81387ac94274c54ccedb628a1dffd7391f65168540daf05cbdb875c10fa63b8fcb962dfbec90cd7772f450e67fa0a370c07a4c6eab7fb11a476e6fec747f383074803eb3178121763f91e7046263a28e45cbce713b1421b075d0e458c"

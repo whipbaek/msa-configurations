@@ -1,13 +1,9 @@
 server:
-  port: 64412
+  port: 9090
 
 spring:
   application:
-    name: user-service
-
-  redis:
-    host: localhost
-    port: 6379
+    name: community-service
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -27,19 +23,9 @@ spring:
         show_sql: false
         format_sql: true
 
-  mail:
-    host: "{cipher}fcadb4a77603939d17476a4ff463eda409485f5ed6307830fad74681914ec40a"
-    port: 587
-    username: "{cipher}3d3e0db8154784474b2dc0aab5784f0f46a0d3f6630d7d058794df152a5ec16ea812b397b60c713d67e394af41018933"
-    password: "{cipher}39c37f8d582b65af74b06facb3842a8cd03b41e83cfc866534830dddfac1c98f617ff4c52389608bae698129e13e0b4f"
-
-
-spring.mail.properties.mail.smtp.auth: true
-spring.mail.properties.mail.smtp.starttls.enable: true
-
 eureka:
   instance:
-    instance-id: user-microservice-instance
+    instance-id: community-microservice-instance
 
   client:
     register-with-eureka: true
@@ -60,17 +46,9 @@ cloud:
     stack:
       auto: false
 
-
-jwt:
-  secret: "{cipher}c7bdc9a73493b2a920a0a08a8a85773954f332b8b36ebea0a2149d7df0238f24792ad04d50e1af9626c6b9f5eead353ddeb26e4d6bcfa52cde84f959fe199985de259b823bb8d0aad6203382ff44d664b1adfba3429739e60c7dcd86f9da936b2a6f400917daf3f112e09c0ba0b272f58f3e83d7034aa1f021e9e8442d154bd6"
-
 logging:
   level:
     com:
       amazonaws:
         util:
           EC2MetadataUtils: ERROR
-
-default_image: "{cipher}806089d9db77d5b9c463f2fcc075b11697ba54c4ad17576383a00908fa4cb0b34a5dcb831544cd027b211b5dc614e5384dd9de97620e2588d49ecfce6f969f791bc36c451224f1b130e6b8390dc4026e4e1e22856fbabde668b996c1ad21cb17"
-
-state-management-url : http://localhost:8090/state/
