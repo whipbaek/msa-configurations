@@ -31,7 +31,7 @@ spring:
     host: "{cipher}fcadb4a77603939d17476a4ff463eda409485f5ed6307830fad74681914ec40a"
     port: 587
     username: "{cipher}3d3e0db8154784474b2dc0aab5784f0f46a0d3f6630d7d058794df152a5ec16ea812b397b60c713d67e394af41018933"
-    password: "{cipher}39c37f8d582b65af74b06facb3842a8cd03b41e83cfc866534830dddfac1c98f617ff4c52389608bae698129e13e0b4f"
+    password: "{cipher}1c8d395e11244dbcddd6bd965a499452a4f0927b0b27790a7d2e5ee4dbd6c3ead7b22cf927ffd7b872819e25fcb8d050"
 
 
 spring.mail.properties.mail.smtp.auth: true
